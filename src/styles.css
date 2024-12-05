@@ -1,9 +1,10 @@
 /* Global Styles */
 body {
   font-family: 'Orbitron', sans-serif; /* Fuente futurista */
-  background: linear-gradient(-45deg, #e0f7fa, #80deea, #4dd0e1, #00bcd4); /* Gradiente animado */
+  background: linear-gradient(-45deg, #0d0d0d, #1a1a1a, #0d0d0d, #1a1a1a); /* Fondo oscuro futurista */
   background-size: 400% 400%; /* Tamaño para animación */
-  color: #333333; /* Texto oscuro para asegurar buena legibilidad */
+  animation: gradientAnimation 15s ease infinite; /* Animación del fondo */
+  color: #00ff00; /* Texto verde neón */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -26,16 +27,16 @@ body {
 /* Estilo general de los títulos */
 h1, h2, h3 {
   text-transform: uppercase;
-  color: #007bff; /* Azul brillante para los títulos */
-  text-shadow: 0 0 10px #007bff, 0 0 20px #007bff; /* Resplandor para darle énfasis */
+  color: #00ff00; /* Verde neón */
+  text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00; /* Resplandor */
   margin-bottom: 1rem;
   font-size: 2rem;
 }
 
 /* Navbar Styles */
 nav {
-  background: rgba(255, 255, 255, 0.8); /* Fondo translúcido claro */
-  backdrop-filter: blur(5px); /* Efecto de desenfoque para el fondo */
+  background: rgba(0, 0, 0, 0.8); /* Fondo translúcido oscuro */
+  backdrop-filter: blur(10px); /* Efecto borroso */
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
@@ -43,13 +44,12 @@ nav {
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil para darle profundidad */
+  box-shadow: 0 4px 15px rgba(0, 255, 0, 0.3); /* Sombra verde */
 }
 
-/* Estilo de la información del perfil */
 .profile_name {
   font-size: 1.5rem;
-  color: #333;
+  color: #00ff00; /* Verde neón */
   font-weight: bold;
   animation: glowText 3s ease-in-out infinite alternate; /* Efecto de resplandor */
 }
@@ -57,7 +57,7 @@ nav {
 .contact_info img {
   width: 1.2rem;
   margin-right: 0.5rem;
-  filter: drop-shadow(0 0 5px #007bff); /* Efecto de sombra en los íconos */
+  filter: drop-shadow(0 0 5px #00ff00); /* Sombra verde en los íconos */
 }
 
 #home {
@@ -71,253 +71,142 @@ nav {
   gap: 1.5rem;
 }
 
-/* Animación para el texto del nombre del perfil */
+/* Animación para el texto del nombre */
 @keyframes glowText {
   0% {
-    text-shadow: 0 0 10px #007bff, 0 0 20px #007bff;
+    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
   }
   100% {
-    text-shadow: 0 0 20px #ff4081, 0 0 40px #ff4081;
+    text-shadow: 0 0 20px #00ff88, 0 0 40px #00ff88;
   }
 }
 
-/* Estilos responsivos */
-@media (max-width: 768px) {
-  .topdiv {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
+/* Links del menú */
 .topmenu {
-  color: #007bff;
+  color: #00ff00;
   text-decoration: none;
-  margin: 1.1rem;
   font-size: 1rem;
-  font-weight: bold;
   transition: color 0.3s ease, text-shadow 0.3s ease;
-  margin: 0.5rem 0; /* Espaciado entre enlaces en dispositivos pequeños */
 }
 
 .topmenu:hover {
-  color: #ff4081; /* Rosa vibrante al pasar el cursor */
-  text-shadow: 0 0 12px #ff4081;
+  color: #00ff88; /* Verde más claro */
+  text-shadow: 0 0 15px #00ff88;
 }
 
 /* About Me */
-/* Animación para la sección About Me */
 #about-me {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 3rem;
   gap: 2rem;
-  animation: fadeInSection 2s ease; /* Efecto de entrada */
+  animation: fadeInSection 2s ease;
 }
-@keyframes fadeInSection {
-  0% {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Estilo y animación de la imagen */
 #about-me img {
   max-width: 300px;
   border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  animation: floatImage 4s ease-in-out infinite; /* Movimiento continuo */
+  box-shadow: 0 5px 15px rgba(0, 255, 0, 0.5); /* Sombra verde */
+  animation: floatImage 4s ease-in-out infinite;
 }
-
-@keyframes floatImage {
-  0%, 100% {
-    transform: translateY(0); /* Posición inicial */
-  }
-  50% {
-    transform: translateY(-10px); /* Subir ligeramente */
-  }
+#about-me h1 {
+  font-size: 1.8rem;
+  color: #00ff00;
+  text-shadow: 0 0 15px #00ff00;
 }
 #about-me p {
   font-size: 1.2rem;
-  color: #555;
   line-height: 1.6;
+  color: #99ff99; /* Verde más suave */
 }
 
-#about-me h1 {
-  font-size: 1.8rem;
-  color: #007bff;
-  text-shadow: 0 0 15px #007bff;
-}
-
-.container {
-  display: flex;
-  align-items: center;
-  padding: 3rem;
-  gap: 2rem;
-  animation: fadeIn 2s ease;
-}
-
-@keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(50px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-.container img {
-  max-width: 300px;
-  border-radius: 15px;
-  filter: drop-shadow(0 0 20px #007bff);
-}
-
-/* Skills Section */
+/* Skills */
 .all_skills {
   display: flex;
-  justify-content: center;
-  gap: 2rem;
   flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
   padding: 2rem;
 }
-
 .skill {
-  border: 2px solid #007bff;
+  border: 2px solid #00ff00;
+  background: rgba(0, 0, 0, 0.8);
   border-radius: 15px;
-  text-align: center;
   padding: 1.2rem;
+  text-align: center;
   width: 12rem;
-  background: #ffffff;
-  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 5px 15px rgba(0, 255, 0, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .skill:hover {
   transform: scale(1.1);
-  box-shadow: 0 0 25px #007bff;
+  box-shadow: 0 0 25px #00ff00;
 }
-
 .skill img {
   width: 3.5rem;
   margin-bottom: 0.7rem;
 }
 
-/* Projects Section */
+/* Projects */
 #projects {
   padding: 3rem 2rem;
-  background: #ffffff; /* Fondo claro */
+  background: rgba(0, 0, 0, 0.9);
   border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
-  margin: 2rem 0;
+  box-shadow: 0 5px 15px rgba(0, 255, 0, 0.3);
+  margin: 2rem;
 }
-
 #projects h2 {
   text-align: center;
   font-size: 2rem;
-  color: #007bff;
-  text-shadow: 0 0 10px #007bff, 0 0 20px #007bff; /* Resplandor para el título */
+  color: #00ff00;
+  text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
   margin-bottom: 2rem;
 }
 
-/* Carrusel de proyectos */
 .carousel {
-  display: flex;
-  gap: 2rem;
-  overflow-x: auto; /* Permite desplazamiento horizontal */
-  padding: 1rem;
-  scroll-behavior: smooth; /* Suaviza el desplazamiento */
-}
-
-.carousel::-webkit-scrollbar {
-  height: 8px; /* Altura de la barra de desplazamiento */
-}
-
-/* Estilo de las tarjetas de proyecto */
-.carousel-item {
-  flex: 0 0 auto;
-  width: 300px; /* Ancho fijo para cada tarjeta */
-  background: linear-gradient(145deg, #ffffff, #e0f7fa); /* Fondo degradado */
-  border-radius: 15px;
-  padding: 1.5rem;
-  border: 2px solid #007bff;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.carousel-item:hover {
-  transform: scale(1.05); /* Agranda la tarjeta al pasar el cursor */
-  box-shadow: 0 0 20px #007bff; /* Efecto de brillo */
-}
-
-.carousel-item h3 {
-  font-size: 1.5rem;
-  color: #007bff;
-  text-shadow: 0 0 10px #007bff;
-  margin-bottom: 0.5rem;
-}
-
-/* Respuesta responsiva */
-@media (max-width: 768px) {
-  .carousel-item {
-    width: 80%; /* Ajusta el ancho en dispositivos pequeños */
-  }
-}
-
-.projects-container {
-  padding: 2rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
+  padding: 1rem;
 }
 
-.project-card {
-  background-color: #ffffff;
+.carousel-item {
+  background: linear-gradient(145deg, #111, #222);
   border-radius: 15px;
   padding: 1.5rem;
-  border: 2px solid #007bff;
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
-  transition: box-shadow 0.3s ease;
+  border: 2px solid #00ff00;
+  box-shadow: 0 5px 15px rgba(0, 255, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-.project-card:hover {
-  box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
+.carousel-item:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #00ff00;
 }
-
-.project-card h3 {
+.carousel-item h3 {
   font-size: 1.5rem;
-  color: #007bff;
-  text-shadow: 0 0 10px #007bff;
+  color: #00ff00;
+  text-shadow: 0 0 10px #00ff00;
+  margin-bottom: 0.5rem;
 }
 
-.project-card ul {
-  list-style: none;
-  padding: 0;
-  margin: 0.5rem 0;
-}
+/* Recommendations */
 
-.project-card li {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #333;
-}
-
-/* Sección de Recommendations */
 #recommendations {
   padding: 3rem 2rem;
-  background: #ffffff; /* Fondo claro */
+  background: rgba(0, 0, 0, 0.9); /* Fondo oscuro */
   border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  box-shadow: 0 5px 15px rgba(0, 255, 0, 0.3);
   margin: 2rem 0;
 }
 
 #recommendations h2 {
   text-align: center;
   font-size: 2rem;
-  color: #007bff;
-  text-shadow: 0 0 10px #007bff, 0 0 20px #007bff; /* Resplandor en el título */
+  color: #00ff00;
+  text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
   margin-bottom: 2rem;
 }
-/* Recommendations */
+
 .all_recommendations {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -327,37 +216,30 @@ nav {
 
 .recommendation {
   font-style: italic;
-  background: #f8f9fa;
+  background: rgba(0, 0, 0, 0.9);
+  border: 2px solid #00ff00;
   padding: 1rem;
   border-radius: 15px;
-  border: 2px solid #007bff;
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+  border: 2px solid #00ff00;
+  color: #99ff99;
+  box-shadow: 0 5px 15px rgba(0, 255, 0, 0.3);
 }
-
 .recommendation:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 15px #007bff;
+  box-shadow: 0 0 15px #00ff00;
 }
 
-.recommendation span {
-  color: #007bff;
-  font-size: 1.5rem;
-  text-shadow: 0 0 10px #007bff;
-  position: absolute;
-}
-
-/* Formulario para añadir recomendaciones */
 fieldset {
-  border: 2px solid #007bff;
+  border: 2px solid #00ff00;
   border-radius: 15px;
   padding: 2rem;
   margin-top: 2rem;
-  background: linear-gradient(145deg, #ffffff, #e0f7fa);
-  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(145deg, #111, #222);
+  box-shadow: 0 3px 15px rgba(0, 255, 0, 0.3);
 }
 
 legend {
-  color: #007bff;
+  color: #00ff00;
   font-size: 1.5rem;
   padding: 0 0.5rem;
 }
@@ -366,67 +248,18 @@ textarea {
   width: 100%;
   height: 100px;
   padding: 1rem;
-  border: 2px solid #007bff;
+  border: 2px solid #00ff00;
   border-radius: 10px;
   font-size: 1rem;
-  color: #555;
-  background: #ffffff;
+  color: #99ff99;
+  background: rgba(0, 0, 0, 0.9);
   transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 textarea:focus {
   outline: none;
-  border-color: #ff4081; /* Rosa al enfocar */
-  box-shadow: 0 0 10px #ff4081;
-}
-
-button {
-  background: linear-gradient(145deg, #007bff, #0056b3);
-  border: none;
-  color: #ffffff;
-  padding: 0.8rem 1.5rem;
-  border-radius: 25px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin-top: 1rem;
-}
-
-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 15px #007bff;
-}
-
-/* Popup */
-.popup {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: linear-gradient(145deg, #ffffff, #e0f7fa);
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  z-index: 1000;
-  color: #007bff;
-  font-size: 1.2rem;
-  animation: fadeInPopup 0.5s ease;
-}
-
-.popup.active {
-  display: block;
-}
-
-@keyframes fadeInPopup {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -60%);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%);
-  }
+  border-color: #00ff88;
+  box-shadow: 0 0 10px #00ff88;
 }
 
 /* Contact Form */
@@ -434,24 +267,25 @@ button:hover {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  background: linear-gradient(145deg, #ffffff, #e0f7fa);
+  background: linear-gradient(145deg, #111, #222);
   padding: 2rem;
   border-radius: 20px;
-  box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+  box-shadow: 0 0 30px rgba(0, 255, 0, 0.3);
   max-width: 500px;
   margin: 0 auto;
 }
 
+
 .contact-form label {
   font-size: 1.2rem;
-  color: #007bff;
+  color: #00ff00;
 }
 
 .contact-form input,
 .contact-form textarea {
-  background: #ffffff;
-  border: 2px solid #007bff;
-  color: #555;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid #00ff00;
+  color: #99ff99;
   padding: 0.7rem;
   border-radius: 10px;
   font-size: 1rem;
@@ -460,12 +294,12 @@ button:hover {
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: none;
-  border-color: #ff4081;
-  box-shadow: 0 0 12px #ff4081;
+  border-color: #00ff88;
+  box-shadow: 0 0 12px #00ff88;
 }
 
 .contact-form button {
-  background: linear-gradient(145deg, #00bcd4, #008ba3);
+  background: linear-gradient(145deg, #00ff00, #008800);
   border: none;
   color: #ffffff;
   padding: 0.8rem 1.8rem;
@@ -477,82 +311,56 @@ button:hover {
 
 .contact-form button:hover {
   transform: scale(1.1);
-  box-shadow: 0 0 20px #00bcd4;
+  box-shadow: 0 0 20px #00ff00;
 }
 
-/* Ajustes generales para pantallas pequeñas */
-@media (max-width: 768px) {
-  body {
-    padding: 1rem;
-  }
-
-  nav {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .topmenu {
-    margin: 0.5rem 0;
-    font-size: 0.9rem; /* Ajusta el tamaño de fuente para dispositivos más pequeños */
-  }
-
-  #about-me {
-    flex-direction: column;
-    padding: 2rem 1rem;
-    text-align: center;
-  }
-
-  #about-me img {
-    max-width: 100%; /* La imagen ocupará todo el ancho disponible */
-  }
-
-  .all_skills {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .carousel {
-    flex-wrap: nowrap; /* Mantiene el desplazamiento horizontal */
-  }
-
-  .carousel-item {
-    width: 80%; /* Ajusta el ancho de las tarjetas en dispositivos pequeños */
-    margin: 0 auto; /* Centra las tarjetas en el contenedor */
-  }
-
-  .projects-container {
-    grid-template-columns: 1fr; /* Un solo elemento por fila */
-  }
-
-  .all_recommendations {
-    grid-template-columns: 1fr; /* Un solo elemento por fila */
-  }
-
-  textarea {
-    height: 80px; /* Reduce la altura en pantallas pequeñas */
-  }
+button {
+  background: linear-gradient(145deg, #00ff00, #008800); /* Gradiente verde */
+  border: 2px solid #00ff00; /* Borde verde brillante */
+  color: #ffffff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 1rem;
+  text-transform: uppercase; /* Texto en mayúsculas */
 }
 
-/* Ajustes para pantallas ultra pequeñas (teléfonos antiguos) */
-@media (max-width: 480px) {
-  h1, h2, h3 {
-    font-size: 1.5rem; /* Reduce el tamaño de los títulos */
-  }
+button:hover {
+  transform: scale(1.1); /* Agranda ligeramente el botón */
+  box-shadow: 0 0 20px #00ff00, 0 0 30px #00ff88; /* Resplandor verde */
+}
 
-  nav {
-    padding: 0.5rem;
+button:active {
+  transform: scale(0.95); /* Reduce el tamaño al hacer clic */
+  box-shadow: 0 0 15px #00ff00; /* Resplandor reducido */
+}
 
-  }
+.resume-section {
+  margin-top: 1rem;
 
-  .profile_name {
-    font-size: 1.2rem; /* Ajusta el tamaño del texto del perfil */
-  }
+}
 
-  #about-me p {
-    font-size: 1rem; /* Reduce ligeramente el tamaño del texto */
-  }
+.resume-button {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  font-size: 0.9rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  background: linear-gradient(145deg, #00ff00, #008800);
+  border: 2px solid #00ff00;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-  .skill {
-    width: 100%; /* Ocupa todo el ancho disponible */
-  }
+.resume-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #00ff00, 0 0 30px #00ff88;
+}
+
+.resume-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 10px #00ff00;
 }

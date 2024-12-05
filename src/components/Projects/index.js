@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const Projects = () => {
-  const projects = [
-    { title: 'Chatbot', description: 'A secure website integrated with chatbot for an automobile client.' },
-    { title: 'Sentiment Analyzer', description: 'A sentiment analyzer for an eCommerce platform using IBM NLU.' },
-    { title: 'Fashion Website', description: 'A styled multi-page website for a fashion industry player.' },
-  ];
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    fetchProjects();
+  }, []);
+
+  const fetchProjects = async () => {
+    try {
+      const { data } = await axios.get('/api/admin/projects'); // Ruta de tu API backend
+      setProjects(data);
+    } catch (error) {
+      console.error('Error fetching projects:', error);
+    }
+  };
 
   return (
     <section id="projects">

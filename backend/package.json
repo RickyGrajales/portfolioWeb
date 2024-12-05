@@ -1,0 +1,27 @@
+{
+    "name": "backend",
+    "version": "0.1.0",
+    "description": "Backend for my app",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js"
+    },
+    "dependencies": {
+      "axios": "^1.7.9",
+      "body-parser": "^1.20.3",
+      "cors": "^2.8.5",
+      "dotenv": "^16.4.7",
+      "express": "^4.21.1",
+      "express-validator": "^7.2.0",
+      "mysql2": "^3.11.5",
+      "sequelize": "^6.37.5"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/RickyGrajales/your-backend-repo"
+    },
+    "keywords": ["backend", "API"],
+    "author": "Luis",
+    "license": "UNLICENSED"
+  }
+  

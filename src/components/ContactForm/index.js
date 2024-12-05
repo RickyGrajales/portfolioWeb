@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import axios from 'axios';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -15,7 +15,7 @@ const ContactForm = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const { name, email, message } = formData;
 
@@ -30,12 +30,20 @@ const ContactForm = () => {
     }
 
     setError('');
-    setShowSuccess(true);
 
-    setTimeout(() => {
-      setShowSuccess(false);
-      setFormData({ name: '', email: '', message: '' });
-    }, 3000);
+    try {
+      await axios.post('http://localhost:5000/contact', formData, {
+        headers: { 'Content-Type': 'application/json' },
+      });
+      setShowSuccess(true);
+      setTimeout(() => {
+        setShowSuccess(false);
+        setFormData({ name: '', email: '', message: '' });
+      }, 3000);
+    } catch (err) {
+      console.error('Error sending message:', err);
+      setError('Something went wrong. Please try again later.');
+    }
   };
 
   return (

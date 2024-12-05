@@ -1,23 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const Skills = () => {
-  const skills = [
-    {
-      name: "HTML",
-      experience: "1 year",
-      icon: `${process.env.PUBLIC_URL}/images/html5.png`,
-    },
-    {
-      name: "JavaScript",
-      experience: "1 year",
-      icon: `${process.env.PUBLIC_URL}/images/js.jpeg`,
-    },
-    {
-      name: "CSS3",
-      experience: "1 year",
-      icon: `${process.env.PUBLIC_URL}/images/CSS3.png`,
-    },
-  ];
+  const [skills, setSkills] = useState([]);
+
+  useEffect(() => {
+    fetchSkills();
+  }, []);
+
+  const fetchSkills = async () => {
+    try {
+      const { data } = await axios.get('/api/admin/skills'); // Ruta de tu API backend
+      setSkills(data);
+    } catch (error) {
+      console.error('Error fetching skills:', error);
+    }
+  };
 
   return (
     <section id="skills">
@@ -25,9 +23,9 @@ const Skills = () => {
       <div className="all_skills">
         {skills.map((skill, index) => (
           <div className="skill" key={index}>
-            <img src={skill.icon} alt={`${skill.name} Icon`} />
+            <img src={skill.icon_url} alt={`${skill.name} Icon`} />
             <h6>{skill.name}</h6>
-            <p>{skill.experience}</p>
+            <p>{skill.description}</p>
           </div>
         ))}
       </div>

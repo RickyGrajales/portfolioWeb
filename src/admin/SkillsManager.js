@@ -19,24 +19,17 @@ const SkillsManager = () => {
   };
 
   const addSkill = async () => {
-    if (!newSkill.name || !newSkill.description) {
-      alert('Name and description are required.');
-      return;
-    }
-
     const formData = new FormData();
     formData.append('name', newSkill.name);
     formData.append('description', newSkill.description);
     if (newSkill.icon) formData.append('icon', newSkill.icon);
 
     try {
-      await axios.post('/api/admin/skills', formData, {
-        headers: { 'Content-Type': 'multipart/form-data' },
-      });
+      await axios.post('/api/admin/skills', formData, { headers: { 'Content-Type': 'multipart/form-data' } });
       fetchSkills();
       setNewSkill({ name: '', description: '', icon: null });
     } catch (error) {
-      console.error('Error adding skill:', error.response?.data || error.message);
+      console.error('Error adding skill:', error);
     }
   };
 
@@ -44,9 +37,8 @@ const SkillsManager = () => {
     <div>
       <h1>Manage Skills</h1>
       <ul>
-        {skills.map(skill => (
+        {skills.map((skill) => (
           <li key={skill.id}>
-            <img src={skill.icon_url} alt={`${skill.name} Icon`} width="50" />
             {skill.name} - {skill.description}
           </li>
         ))}

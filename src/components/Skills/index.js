@@ -5,17 +5,17 @@ const Skills = () => {
   const [skills, setSkills] = useState([]);
 
   useEffect(() => {
+    const fetchSkills = async () => {
+      try {
+        const { data } = await axios.get('/api/admin/skills'); // Ruta de tu API backend
+        setSkills(data);
+      } catch (error) {
+        console.error('Error fetching skills:', error);
+      }
+    };
+
     fetchSkills();
   }, []);
-
-  const fetchSkills = async () => {
-    try {
-      const { data } = await axios.get('/api/admin/skills'); // Ruta de tu API backend
-      setSkills(data);
-    } catch (error) {
-      console.error('Error fetching skills:', error);
-    }
-  };
 
   return (
     <section id="skills">

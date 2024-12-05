@@ -19,6 +19,7 @@ const ContactForm = () => {
     e.preventDefault();
     const { name, email, message } = formData;
 
+    // Validar campos
     if (!name.trim() || !email.trim() || !message.trim()) {
       setError('All fields are required!');
       return;
@@ -29,17 +30,18 @@ const ContactForm = () => {
       return;
     }
 
-    setError('');
+    setError(''); // Limpiar errores previos
 
     try {
-      await axios.post('http://localhost:5000/contact', formData, {
+      const response = await axios.post('http://localhost:5000/contact', formData, {
         headers: { 'Content-Type': 'application/json' },
       });
-      setShowSuccess(true);
-      setTimeout(() => {
-        setShowSuccess(false);
-        setFormData({ name: '', email: '', message: '' });
-      }, 3000);
+
+      if (response.status === 200) {
+        setShowSuccess(true); // Mostrar mensaje de éxito
+        setFormData({ name: '', email: '', message: '' }); // Limpiar formulario
+        setTimeout(() => setShowSuccess(false), 3000); // Ocultar mensaje de éxito después de 3 segundos
+      }
     } catch (err) {
       console.error('Error sending message:', err);
       setError('Something went wrong. Please try again later.');
@@ -80,13 +82,12 @@ const ContactForm = () => {
         ></textarea>
 
         {error && <p className="error-message">{error}</p>}
-
         <button type="submit">Send</button>
       </form>
 
       {showSuccess && (
         <div className="popup active">
-          <p>Thank you for reaching out! I'll get back to you soon.</p>
+          <p>Your message has been sent successfully!</p>
         </div>
       )}
     </section>

@@ -5,17 +5,17 @@ const Projects = () => {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const { data } = await axios.get('/api/admin/projects'); // Ruta de tu API backend
+        setProjects(data);
+      } catch (error) {
+        console.error('Error fetching projects:', error);
+      }
+    };
+
     fetchProjects();
   }, []);
-
-  const fetchProjects = async () => {
-    try {
-      const { data } = await axios.get('/api/admin/projects'); // Ruta de tu API backend
-      setProjects(data);
-    } catch (error) {
-      console.error('Error fetching projects:', error);
-    }
-  };
 
   return (
     <section id="projects">
@@ -25,6 +25,7 @@ const Projects = () => {
           <div className="carousel-item" key={index}>
             <h3>{project.title}</h3>
             <p>{project.description}</p>
+            {project.image_url && <img src={project.image_url} alt={project.title} />}
           </div>
         ))}
       </div>

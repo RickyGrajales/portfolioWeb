@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const Skills = () => {
   const [skills, setSkills] = useState([]);
@@ -7,10 +7,10 @@ const Skills = () => {
   useEffect(() => {
     const fetchSkills = async () => {
       try {
-        const { data } = await axios.get('/api/admin/skills'); // Ruta de tu API backend
+        const { data } = await axios.get("/api/admin/skills"); // Ruta de tu API backend
         setSkills(data);
       } catch (error) {
-        console.error('Error fetching skills:', error);
+        console.error("Error fetching skills:", error);
       }
     };
 

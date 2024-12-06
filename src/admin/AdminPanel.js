@@ -1,6 +1,6 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import SkillsManager from './SkillsManager';
-import ProjectsManager from './ProjectsManager';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import SkillsManager from "./SkillsManager";
+import ProjectsManager from "./ProjectsManager";
 
 const AdminPanel = () => {
   return (

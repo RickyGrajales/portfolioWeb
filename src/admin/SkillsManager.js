@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const SkillsManager = () => {
   const [skills, setSkills] = useState([]);
-  const [newSkill, setNewSkill] = useState({ name: '', description: '', icon: null });
+  const [newSkill, setNewSkill] = useState({
+    name: "",
+    description: "",
+    icon: null,
+  });
 
   useEffect(() => {
     fetchSkills();
@@ -11,25 +15,27 @@ const SkillsManager = () => {
 
   const fetchSkills = async () => {
     try {
-      const { data } = await axios.get('/api/admin/skills');
+      const { data } = await axios.get("/api/admin/skills");
       setSkills(data);
     } catch (error) {
-      console.error('Error fetching skills:', error);
+      console.error("Error fetching skills:", error);
     }
   };
 
   const addSkill = async () => {
     const formData = new FormData();
-    formData.append('name', newSkill.name);
-    formData.append('description', newSkill.description);
-    if (newSkill.icon) formData.append('icon', newSkill.icon);
+    formData.append("name", newSkill.name);
+    formData.append("description", newSkill.description);
+    if (newSkill.icon) formData.append("icon", newSkill.icon);
 
     try {
-      await axios.post('/api/admin/skills', formData, { headers: { 'Content-Type': 'multipart/form-data' } });
+      await axios.post("/api/admin/skills", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
       fetchSkills();
-      setNewSkill({ name: '', description: '', icon: null });
+      setNewSkill({ name: "", description: "", icon: null });
     } catch (error) {
-      console.error('Error adding skill:', error);
+      console.error("Error adding skill:", error);
     }
   };
 
@@ -54,12 +60,16 @@ const SkillsManager = () => {
           type="text"
           placeholder="Description"
           value={newSkill.description}
-          onChange={(e) => setNewSkill({ ...newSkill, description: e.target.value })}
+          onChange={(e) =>
+            setNewSkill({ ...newSkill, description: e.target.value })
+          }
         />
         <input
           type="file"
           accept="image/*"
-          onChange={(e) => setNewSkill({ ...newSkill, icon: e.target.files[0] })}
+          onChange={(e) =>
+            setNewSkill({ ...newSkill, icon: e.target.files[0] })
+          }
         />
         <button onClick={addSkill}>Add Skill</button>
       </div>

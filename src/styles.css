@@ -104,7 +104,7 @@ nav {
   animation: fadeInSection 2s ease;
 }
 #about-me img {
-  max-width: 300px;
+  max-width: 250px;
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0, 255, 0, 0.5); /* Sombra verde */
   animation: floatImage 4s ease-in-out infinite;
@@ -121,6 +121,21 @@ nav {
 }
 
 /* Skills */
+#skills {
+  padding: 3rem 2rem;
+  background: rgba(0, 0, 0, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 255, 0, 0.3);
+  margin: 2rem;
+}
+#skills h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #00ff00; /* Verde neón */
+  text-shadow: 0 0 15px #00ff00, 0 0 30px #00ff00; /* Resplandor */
+  margin-bottom: 2rem;
+}
+
 .all_skills {
   display: flex;
   flex-wrap: wrap;
@@ -132,7 +147,7 @@ nav {
   border: 2px solid #00ff00;
   background: rgba(0, 0, 0, 0.8);
   border-radius: 15px;
-  padding: 1.2rem;
+  padding: 1.5rem;
   text-align: center;
   width: 12rem;
   box-shadow: 0 5px 15px rgba(0, 255, 0, 0.3);
@@ -144,7 +159,25 @@ nav {
 }
 .skill img {
   width: 3.5rem;
-  margin-bottom: 0.7rem;
+  margin-bottom: 1rem;
+  transition: transform 0.3s;
+}
+
+.skill h6 {
+  font-size: 1.2rem;
+  color: #00ff00;
+  text-shadow: 0 0 10px #00ff00;
+}
+
+.skill p {
+  color: #99ff99; /* Texto suave verde */
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Animación para la imagen */
+.skill img:hover {
+  transform: rotate(360deg); /* Gira la imagen al pasar el mouse */
 }
 
 /* Projects */

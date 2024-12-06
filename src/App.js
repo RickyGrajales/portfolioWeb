@@ -1,15 +1,15 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import AboutMe from "./components/AboutMe";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Recommendations from "./components/Recommendations";
-import ContactForm from './components/ContactForm';
+import ContactForm from "./components/ContactForm";
 
 // Admin components
-import SkillsManager from './admin/SkillsManager';
-import ProjectsManager from './admin/ProjectsManager';
+import SkillsManager from "./admin/SkillsManager";
+import ProjectsManager from "./admin/ProjectsManager";
 
 // Estilos
 import "./styles.css";
